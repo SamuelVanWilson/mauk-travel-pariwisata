@@ -5,7 +5,7 @@
     @endauth
     @if ($userRole == 'admin')
       <x-admin-sidebar>
-        <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12 {{ empty($tours->nama) ? 'h-screen' : '' }}">
+        <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12 {{ empty($tours->nama_wisata) ? 'h-screen' : '' }}">
           <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
@@ -31,13 +31,13 @@
               @forelse ($tours as $tour)
                 <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                   <div class="h-56 w-full">
-                    <a href="{{ route('show', $tour->nama) }}">
+                    <a href="{{ route('tours.show', $tour->nama_wisata) }}">
                       <img class="mx-auto h-full object-cover" src="{{ asset('storage/img_wisata/'.$tour->gambar) }}" alt="" />
                     </a>
                   </div>
                   <div class="pt-6">
           
-                    <a href="{{ route('show', $tour->nama) }}" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
+                    <a href="{{ route('tours.show', $tour->nama_wisata) }}" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
           
                     <ul class="mt-2 flex items-center gap-4">
                       <li class="flex items-center gap-2">
@@ -52,7 +52,7 @@
                     <div class="mt-4 flex items-center justify-between gap-4">
                       <p class="text-sm font-extrabold leading-tight text-gray-900 dark:text-white">Rp. {{ $tour->harga }}</p>
           
-                      <a href="{{ route('tours.show', $tour->id) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                      <a href="{{ route('tours.show', $tour->nama_wisata) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Detail
                         <svg class="w-5 h-5 ml-2 -mr-1 -mb-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" stroke-width="2" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                       </a>
@@ -169,13 +169,13 @@
               @foreach ($tours as $tour)
                 <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                   <div class="h-56 w-full">
-                    <a href="{{ route('tours.show', $tour->id) }}">
+                    <a href="{{ route('tours.show', $tour->nama_wisata) }}">
                       <img class="mx-auto h-full object-cover" src="{{ asset('storage/img_wisata/'.$tour->gambar) }}" alt="" />
                     </a>
                   </div>
                   <div class="pt-6">
           
-                    <a href="{{ route('tours.show', $tour->id) }}" class="object-cover text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
+                    <a href="{{ route('tours.show', $tour->nama_wisata) }}" class="object-cover text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
           
                     <ul class="mt-2 flex items-center gap-4">
                       <li class="flex items-center gap-2">
@@ -190,7 +190,7 @@
                     <div class="mt-4 flex items-center justify-between gap-4">
                       <p class="text-md font-extrabold leading-tight text-gray-900 dark:text-white">Rp. {{ $tour->harga }}</p>
           
-                      <a href="{{ route('tours.show', $tour->id) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                      <a href="{{ route('tours.show', $tour->nama_wisata) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Lihat Wisata
                         <svg class="w-5 h-5 ml-2 -mr-1 -mb-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" stroke-width="2" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                       </a>

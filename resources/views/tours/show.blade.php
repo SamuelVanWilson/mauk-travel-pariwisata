@@ -34,9 +34,9 @@
     
               <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
                 
-                @if (Auth::user()->admin == 'admin')
+                @if (Auth::user()->role->nama == 'admin')
                   <a
-                  href="{{ route('admin.edit', $wisata->id) }}"
+                  href="{{ route('admin.edit', $wisata->nama_wisata) }}"
                   class="text-white mt-4 sm:mt-0 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 flex items-center justify-center"
                   role="button"
                   >
@@ -44,7 +44,7 @@
                   Edit
                   </a>
 
-                  <form action="{{ route('admin.destroy', $wisata->id) }}" method="post">
+                  <form action="{{ route('admin.destroy', $wisata->nama_wisata) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button
@@ -57,7 +57,7 @@
                     </button>
                   </form>
                 @else
-                  <form action="{{ route('pesan', $wisata->id) }}" method="get">
+                  <form action="{{ route('pesan', $wisata->nama_wisata) }}" method="get">
                     <input type="number" name="quantity" placeholder="Jumlah Tiket">
                     <button type="submit"
                     class="text-white mt-4 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 flex items-center justify-center"

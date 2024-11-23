@@ -4,12 +4,12 @@
     <x-admin-sidebar>
         
         <!-- Main modal -->
-        <div  class=" top-0 right-0 left-0 justify-center items-center w-full md:inset-0 h-modal ">
-            <div class=" p-4 w-full max-w-2xl  md:h-auto">
+        <div  class=" top-0 right-0 left-0 justify-center items-center w-full md:inset-0 ">
+            <div class=" p-4 w-full max-w-2xl  ">
                 <!-- Modal content -->
                 <div class=" p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
                     <a
-                        href="{{ route('tours.show', $wisata->id) }}   "
+                        href="{{ route('tours.show', $wisata->nama_wisata) }}   "
                         title=""
                         class=" py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                         role="button"
@@ -24,7 +24,7 @@
                         <img src="{{ asset('storage/img_wisata/'.$wisata->gambar) }}" class="rounded-sm object-cover h-2/4 w-full">
                     </div>
                     <!-- Modal body -->
-                    <form action="{{ route('admin.update', $wisata->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.update', $wisata->nama_wisata) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="grid gap-4 mb-4 sm:grid-cols-2">
