@@ -47,8 +47,12 @@ Route::controller(TourController::class)->name('tours.')->group(function(){
 });
 
 Route::middleware('auth')->group(function(){
-    Route::resource('pesan', UserController::class)->except(['index']);
-    Route::get('/list-pesanan', [UserController::class, 'pesanan'])->name('pesanan');
+
+    Route::get('/riwayat-pesanan', [UserController::class, 'riwayat_pesanan'])->name('riwayat');
+    Route::get('/pesan-wisata/{wisata}', [UserController::class, 'create'])->name('pesan');
+    Route::get('/pesan-detail/{wisata}', [UserController::class, 'show'])->name('detail_pesan');
+    Route::post('/proses-pemesanan', [UserController::class, 'store'])->name('proses_pesan');
+
     Route::middleware('role:admin')->group(function(){
         Route::get('/admin/dashboard', [UserController::class, 'admin'])->name('admin');
         Route::resource('tours/admin', TourController::class)->except(['index', 'show']);

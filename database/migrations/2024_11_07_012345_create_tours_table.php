@@ -11,18 +11,18 @@ class CreateToursTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('tours', function (Blueprint $table) {
-            $table->id();
-            $table->string('gambar')->default('view.jpg');
-            $table->foreignId('category_id')->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama_wisata');
-            $table->string('tempat_wisata');
-            $table->string('deskripsi');
-            $table->integer('harga');
-        });
-    }
+        public function up()
+        {
+            Schema::create('tours', function (Blueprint $table) {
+                $table->id();
+                $table->string('gambar')->default('view.jpg');
+                $table->foreignId('category_id')->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
+                $table->string('nama_wisata');
+                $table->string('tempat_wisata');
+                $table->string('deskripsi');
+                $table->decimal('harga', 10, 2);
+            });
+        }
 
     /**
      * Reverse the migrations.

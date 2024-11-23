@@ -8,7 +8,7 @@
             <a
             href="/tours-mauk   "
             title=""
-            class=" py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-sky-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            class=" py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             role="button"
             >
             Kembali
@@ -34,27 +34,41 @@
     
               <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
                 
-                <a
-                href="{{ route('admin.edit', $wisata->id) }}"
-                class="text-white mt-4 sm:mt-0 bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-sky-600 dark:hover:bg-sky-700 focus:outline-none dark:focus:ring-sky-800 flex items-center justify-center"
-                role="button"
-                >
-  
-                Edit
-                </a>
-
-                <form action="{{ route('admin.destroy', $wisata->id) }}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button
-                  type="submit"
-                  class="text-white mt-4 sm:mt-0 bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 flex items-center justify-center"
+                @if (Auth::user()->admin == 'admin')
+                  <a
+                  href="{{ route('admin.edit', $wisata->id) }}"
+                  class="text-white mt-4 sm:mt-0 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 flex items-center justify-center"
                   role="button"
                   >
     
-                  Hapus
-                  </button>
-                </form>
+                  Edit
+                  </a>
+
+                  <form action="{{ route('admin.destroy', $wisata->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button
+                    type="submit"
+                    class="text-white mt-4 sm:mt-0 bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 flex items-center justify-center"
+                    role="button"
+                    >
+      
+                    Hapus
+                    </button>
+                  </form>
+                @else
+                  <form action="{{ route('pesan', $wisata->id) }}" method="get">
+                    <input type="number" name="quantity" placeholder="Jumlah Tiket">
+                    <button type="submit"
+                    class="text-white mt-4 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 flex items-center justify-center"
+                    role="button"
+                    >
+      
+                    Beli Tiket
+                    </button>
+                  </form>
+
+                @endif
                   
               </div>
     

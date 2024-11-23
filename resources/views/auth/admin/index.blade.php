@@ -38,7 +38,7 @@
                             {{ $dataUser->no_handphone }}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="{{ route('auth.update.akun') }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <a href="{{ route('auth.update.akun') }}" class="font-medium text-purple-600 dark:text-purple-500 hover:underline">Edit</a>
                             <form action="{{ route('auth.destroy.akun', $dataUser->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')

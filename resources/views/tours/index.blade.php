@@ -31,13 +31,13 @@
               @forelse ($tours as $tour)
                 <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                   <div class="h-56 w-full">
-                    <a href="#">
+                    <a href="{{ route('show', $tour->nama) }}">
                       <img class="mx-auto h-full object-cover" src="{{ asset('storage/img_wisata/'.$tour->gambar) }}" alt="" />
                     </a>
                   </div>
                   <div class="pt-6">
           
-                    <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
+                    <a href="{{ route('show', $tour->nama) }}" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
           
                     <ul class="mt-2 flex items-center gap-4">
                       <li class="flex items-center gap-2">
@@ -52,7 +52,7 @@
                     <div class="mt-4 flex items-center justify-between gap-4">
                       <p class="text-sm font-extrabold leading-tight text-gray-900 dark:text-white">Rp. {{ $tour->harga }}</p>
           
-                      <a href="{{ route('tours.show', $tour->id) }}" class="inline-flex items-center rounded-lg bg-sky-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                      <a href="{{ route('tours.show', $tour->id) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Detail
                         <svg class="w-5 h-5 ml-2 -mr-1 -mb-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" stroke-width="2" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                       </a>
@@ -106,7 +106,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center space-x-4 rounded-b p-4 dark:border-gray-600 md:p-5">
-                  <button type="submit" class="rounded-lg bg-sky-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-800">Tampilkan</button>
+                  <button type="submit" class="rounded-lg bg-purple-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-800">Tampilkan</button>
                   <button type="reset" class="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Reset</button>
                 </div>
               </div>
@@ -115,7 +115,7 @@
         </section>
       </x-admin-sidebar>
     @else
-      <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
+      <section class="bg-gray-50 py-8 mb-28 antialiased dark:bg-gray-900 md:py-12">
           <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
@@ -169,13 +169,13 @@
               @foreach ($tours as $tour)
                 <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                   <div class="h-56 w-full">
-                    <a href="#">
-                      <img class="mx-auto h-full" src="{{ asset('storage/img_wisata/'.$tour->gambar) }}" alt="" />
+                    <a href="{{ route('tours.show', $tour->id) }}">
+                      <img class="mx-auto h-full object-cover" src="{{ asset('storage/img_wisata/'.$tour->gambar) }}" alt="" />
                     </a>
                   </div>
                   <div class="pt-6">
           
-                    <a href="#" class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama }}</a>
+                    <a href="{{ route('tours.show', $tour->id) }}" class="object-cover text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $tour->nama_wisata }}</a>
           
                     <ul class="mt-2 flex items-center gap-4">
                       <li class="flex items-center gap-2">
@@ -190,10 +190,10 @@
                     <div class="mt-4 flex items-center justify-between gap-4">
                       <p class="text-md font-extrabold leading-tight text-gray-900 dark:text-white">Rp. {{ $tour->harga }}</p>
           
-                      <button type="button" class="inline-flex items-center rounded-lg bg-sky-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                      <a href="{{ route('tours.show', $tour->id) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Lihat Wisata
                         <svg class="w-5 h-5 ml-2 -mr-1 -mb-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" stroke-width="2" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -243,7 +243,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center space-x-4 rounded-b p-4 dark:border-gray-600 md:p-5">
-                  <button type="submit" class="rounded-lg bg-sky-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-800">Tampilkan</button>
+                  <button type="submit" class="rounded-lg bg-purple-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-800">Tampilkan</button>
                   <button type="reset" class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Reset</button>
                 </div>
               </div>
