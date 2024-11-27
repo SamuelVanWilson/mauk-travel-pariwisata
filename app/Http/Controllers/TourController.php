@@ -135,7 +135,7 @@ class TourController extends Controller
 
         $admin->update($data);
         notify()->success('Data Wisata Berhasil Diubah');
-        return redirect()->route('tours.show', $admin->id);
+        return redirect()->route('tours.show', $admin->nama_wisata);
     }
 
     /**

@@ -39,6 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getFormattedSaldoAttribute(){
+        return 'Rp. '.number_format($this->saldo, '0', '', '.');
+    }
+
     public function role(){
         return $this->belongsTo(Role::class);
     }

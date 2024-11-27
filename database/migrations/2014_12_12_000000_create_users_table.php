@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('gambar')->default('user.jpg');
             $table->string('password');
             $table->string('no_handphone');
-            $table->foreignIdFor(Role::class)->default(1);
+            $table->foreignIdFor(Role::class)->default(1)->constrained();
             $table->rememberToken();
             $table->timestamps();
         });

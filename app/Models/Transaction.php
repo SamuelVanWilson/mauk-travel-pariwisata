@@ -12,6 +12,10 @@ class Transaction extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function getFormattedPriceAttribute(){
+        return 'Rp. '.number_format($this->price, '0', '', '.');
+    }
+
     public function tour(){
         return $this->belongsTo(Tour::class);
     }

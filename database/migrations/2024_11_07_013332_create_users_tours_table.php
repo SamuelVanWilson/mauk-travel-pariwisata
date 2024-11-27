@@ -17,8 +17,8 @@ class CreateUsersToursTable extends Migration
     {
         Schema::create('users_tours', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Role::class);
+            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Role::class)->constrained();
         });
     }
 

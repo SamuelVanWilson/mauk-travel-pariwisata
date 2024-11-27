@@ -44,10 +44,11 @@ class UserController extends Controller
             'jumlah_pemesanan' =>  $request->quantity,
             'total_harga' => $wisata->harga * $request->quantity
         ];
+        $totalHarga = 'Rp.'.number_format($dataPesan['total_harga'], '0', '', '.');
 
         session(['data_pesan' => $dataPesan]);
 
-        return view('pesan/create', compact('title', 'dataPesan'));
+        return view('pesan/create', compact('title', 'dataPesan', 'totalHarga', 'wisata'));
     }
 
     /**

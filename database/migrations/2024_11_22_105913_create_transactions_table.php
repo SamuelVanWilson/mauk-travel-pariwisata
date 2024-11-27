@@ -17,8 +17,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Tour::class);
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Tour::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained();
             $table->integer('price');
             $table->string('tanggal_berkunjung');
             $table->integer('quantity');

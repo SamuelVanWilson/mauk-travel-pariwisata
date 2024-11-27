@@ -44,7 +44,7 @@
                             </div>
                             <div>
                                 <label for="harga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
-                                <input type="number" name="harga" id="harga" value="{{ old('harga', $wisata->harga) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="$2999" required>
+                                <input type="number" name="harga" id="harga" value="{{ old('harga', intval($wisata->harga)) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500" placeholder="$2999" required>
                                 @error('harga')
                                     {{ $message }}
                                 @enderror

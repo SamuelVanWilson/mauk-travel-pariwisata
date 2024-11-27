@@ -33,7 +33,7 @@
         
                     <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
                       <dt class="text-base font-medium text-gray-500 dark:text-gray-400">Total Pembayaran:</dt>
-                      <dd class="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">{{ $transaksi->price }}</dd>
+                      <dd class="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">{{ $transaksi->formatted_price }}</dd>
                     </dl>
         
                     <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">

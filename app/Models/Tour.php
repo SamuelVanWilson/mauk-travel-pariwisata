@@ -12,6 +12,9 @@ class Tour extends Model
     protected $fillable = [
         "nama_wisata", "tempat_wisata", "harga", "deskripsi", "gambar", "category_id"
     ];
+    public function getFormattedHargaAttribute(){
+        return 'Rp. '.number_format($this->harga, '0', '', '.');
+    }
     public function getRouteKeyName()
     {
         return 'nama_wisata';

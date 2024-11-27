@@ -5,7 +5,7 @@
     @endauth
     @if ($userRole == 'admin')
       <x-admin-sidebar>
-        <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12 {{ empty($tours->nama_wisata) ? 'h-screen' : '' }}">
+        <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12 {{ empty($tours) ? 'h-screen' : '' }}">
           <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
@@ -50,7 +50,7 @@
                     
                     {{-- CARD ITEMS --}}
                     <div class="mt-4 flex items-center justify-between gap-4">
-                      <p class="text-sm font-extrabold leading-tight text-gray-900 dark:text-white">Rp. {{ $tour->harga }}</p>
+                      <p class="text-sm font-extrabold leading-tight text-gray-900 dark:text-white">{{ $tour->formatted_harga }}</p>
           
                       <a href="{{ route('tours.show', $tour->nama_wisata) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Detail
@@ -188,7 +188,7 @@
                     
                     {{-- CARD ITEMS --}}
                     <div class="mt-4 flex items-center justify-between gap-4">
-                      <p class="text-md font-extrabold leading-tight text-gray-900 dark:text-white">Rp. {{ $tour->harga }}</p>
+                      <p class="text-md font-extrabold leading-tight text-gray-900 dark:text-white">{{ $tour->formatted_harga }}</p>
           
                       <a href="{{ route('tours.show', $tour->nama_wisata) }}" class="inline-flex items-center rounded-lg bg-purple-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Lihat Wisata

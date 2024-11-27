@@ -28,13 +28,13 @@
                 <p
                   class="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white"
                 >
-                  Rp. {{ $wisata->harga }}
+                  {{ $wisata->formatted_harga }}
                 </p>
               </div>
     
               <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
                 
-                @if (Auth::user()->role->nama == 'admin')
+                @if (Auth::check() && Auth::user()->role->nama == 'admin')
                   <a
                   href="{{ route('admin.edit', $wisata->nama_wisata) }}"
                   class="text-white mt-4 sm:mt-0 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 flex items-center justify-center"
@@ -67,7 +67,6 @@
                     Beli Tiket
                     </button>
                   </form>
-
                 @endif
                   
               </div>
