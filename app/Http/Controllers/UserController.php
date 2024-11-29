@@ -133,7 +133,7 @@ class UserController extends Controller
     public function riwayat_pesanan()
     {
         $title = "Pesan Tiket";
-        $riwayatTransaksi = Auth::user()->transaction->all();
+        $riwayatTransaksi = Transaction::where('user_id', Auth::id())->with('tour')->get();
         return view('pesan.index', compact('title', 'riwayatTransaksi'));
     }
 }
