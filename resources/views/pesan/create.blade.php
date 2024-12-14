@@ -13,7 +13,7 @@
                     <div class="mb-6 grid grid-cols-2 gap-4">
                       <div class="col-span-2 sm:col-span-1">
                         <label for="full_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Nama pemesan* </label>
-                        <input type="text" id="full_name" name="nama" value="{{ old('nama') }}" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500" placeholder="Bonnie Green" required />
+                        <input type="text" id="full_name" name="nama" value="{{ old('nama', Auth::user()->nama) }}" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500" required />
                       </div>
           
                       <div class="col-span-2 sm:col-span-1">

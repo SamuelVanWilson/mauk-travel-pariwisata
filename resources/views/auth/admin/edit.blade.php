@@ -200,13 +200,18 @@
                 
                 <hr />
               </form>
-              <form method="POST" enctype="multipart/form-data" action="{{ route('auth.destroy') }}" class="mt-2 w-full p-4 text-right text-gray-500">
-                @csrf
-                @method('DELETE')
-                <button class="inline-flex items-center focus:outline-none mr-4 bg-red-800 text-white py-2 px-4">
-                  Logout
-                </button>
+              <form method="POST" enctype="multipart/form-data" action="{{ route('auth.destroy') }}" class="mt-8 w-full text-center">
+                  @csrf
+                  @method('DELETE')
+                  <button class="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 focus:outline-none transition duration-200 ease-in-out transform hover:scale-105">
+                      Logout
+                      <svg fill="none" class="w-5 text-white mr-2 inline-block" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H3" />
+                      </svg>
+                  </button>
               </form>
+
+
             </div>
         </section>
     </main>

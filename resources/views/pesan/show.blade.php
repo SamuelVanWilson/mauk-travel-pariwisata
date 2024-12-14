@@ -4,7 +4,7 @@
     <section class="mt-10 py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
             <a
-            href="/tours-mauk"
+            href="{{route('riwayat')}}"
             title=""
             class=" py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             role="button"
@@ -36,7 +36,7 @@
                 Jumlah Pemesanan: <b>{{ $wisata->quantity }}</b>
               </div>
               <div class="">
-                Total Harga: Rp.<b>{{ $wisata->price }}</b>
+                Harga Tiket: <b>{{ $wisata->formatted_price }}</b>
               </div>
               <p class="mb-6 text-gray-500 dark:text-gray-400">
                 {{ $deskripsiWisata }}

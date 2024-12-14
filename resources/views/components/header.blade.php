@@ -7,10 +7,24 @@
     <title>{{ $title }}</title>
     @notifyCss
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>
+      #navBar {
+        z-index: 50; /* Pastikan nilai z-index cukup tinggi */
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+      main {
+        padding-top: 100px;
+      }
+      .nt-top {
+        top: 4em;
+      }
+    </style>
 </head>
 <body>
 @include('notify::components.notify')
-<nav class="bg-white border-b fixed w-full top-0 border-gray-200 dark:bg-gray-900">
+<nav class="bg-white border-b fixed w-full top-0 border-gray-200 dark:bg-gray-900 z-50" id="navBar">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="{{asset('asset_web/logo.png')}}" class="h-8" alt="Flowbite Logo" />
