@@ -7,6 +7,7 @@
     <title>{{ $title }}</title>
     @notifyCss
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="icon" href="{{ asset('asset_web/logo.png') }}" type="image/png">
     <style>
       #navBar {
         z-index: 50; /* Pastikan nilai z-index cukup tinggi */
