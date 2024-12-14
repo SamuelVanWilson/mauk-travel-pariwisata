@@ -19,14 +19,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call(RoleSeeder::class);
-        User::create([
-            'nama' => 'admin',
-            'email' => 'admin@gmail.com',
-            'no_handphone' => '112233',
-            'password' => Hash::make('admin@admin'),
-            'saldo' => 0,
-            'role_id' => 2,
-        ]);
 
         DB::table('categories')->insert([
             ['nama' => 'Pantai'],
